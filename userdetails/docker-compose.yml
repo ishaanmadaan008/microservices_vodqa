@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  userdetails:
+    networks:
+      - abc
+    image: userdetails
+    container_name: "userdetails"
+    ports:
+     - "7070:7070"
+    links:
+      - userdetails-mysql
+  userdetails-mysql:
+    networks:
+      - abc
+    image: mysql:5.7.17
+    container_name: "userdetails-mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DB=userdetails
+    ports:
+      - "3307:3306"
+networks:
+  abc:
+    external: true
+

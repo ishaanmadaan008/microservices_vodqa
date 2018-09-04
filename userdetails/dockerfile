@@ -1,0 +1,9 @@
+FROM java-jdk
+
+COPY . /userdetails
+COPY .mvn /userdetails
+WORKDIR /userdetails
+
+EXPOSE 7070
+
+CMD ./mvnw spring-boot:run

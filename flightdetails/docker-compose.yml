@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  userdetails:
+    networks:
+      - abc
+    image: flightdetails
+    container_name: "flightdetails"
+    ports:
+     - "9090:9090"
+    links:
+      - flightdetails-mysql
+  flightdetails-mysql:
+    networks:
+      - abc
+    image: mysql:5.7.17
+    container_name: "flightdetails-mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DB=flightdetails
+    ports:
+      - "3308:3306"
+networks:
+  abc:
+    external: true
+
