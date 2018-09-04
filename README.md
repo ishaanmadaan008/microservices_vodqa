@@ -28,3 +28,5 @@ http://localhost:7070/userdetails/swagger-ui.html#/user-controller
 
 http://localhost:6060/reservation/swagger-ui.html#/reservation-controller
 
+http://localhost:9090/flightdetails/swagger-ui.html
+
