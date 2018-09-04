@@ -3,7 +3,7 @@ Microservices Testing
 
 Flight Reservation demo.
 
-Prject Contains Three Services
+Project Contains Three Services
 
 Flightdetail service
 user detail service
