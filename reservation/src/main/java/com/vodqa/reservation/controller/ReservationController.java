@@ -42,4 +42,10 @@ public class ReservationController {
 
 	}
 
+	@GetMapping("/health")
+	public String healthCheck()
+	{
+		return "ok";
+	}
+
 }

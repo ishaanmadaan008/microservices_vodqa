@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class ReservationRestController {
+public class ReservationCheckinController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationRestController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationCheckinController.class);
 
 	@Autowired
 	ReservationRepository reservationRepository;
 
-	@RequestMapping("/reservations/{id}")
+	@RequestMapping(value ="/reservations/{id}",method = RequestMethod.GET)
 	public Reservation findReservation(@PathVariable("id") Long id) {
 		LOGGER.info("Inside findReservation() for id: " + id);
 		return reservationRepository.findOne(id);
