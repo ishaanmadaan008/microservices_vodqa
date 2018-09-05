@@ -23,5 +23,6 @@
 	<root leve="debug">
 		<appender-ref ref="FILE" />
 	</root>
+	<logger name="org.flywaydb" level="DEBUG"/>
 
 </configuration>

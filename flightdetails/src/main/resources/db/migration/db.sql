@@ -1,43 +1,38 @@
-USE FLIGHTDETAILS;
+use flightdetails;
 
-CREATE TABLE `FLIGHT` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `FLIGHT_NUMBER` varchar(20) NOT NULL,
-  `OPERATING_AIRLINES` varchar(20) NOT NULL,
-  `DEPARTURE_CITY` varchar(20) NOT NULL,
-  `ARRIVAL_CITY` varchar(20) NOT NULL,
-  `DATE_OF_DEPARTURE` date NOT NULL,
-  `ESTIMATED_DEPARTURE_TIME` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ALTER TABLE flight
+  DROP COLUMN date_of_departure;
+
+ALTER TABLE flight
+  ADD date_of_departure DATE;
 
 
-insert into FLIGHT values(1,'AA1','American Airlines','AUS',
-'NYC',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 03:14:07');
+insert into flight(id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time) values(1,'aa1','american airlines','aus',
+                          'nyc','2018-02-05','2018-02-05 03:14:07');
 
-insert into FLIGHT values(2,'AA2','American Airlines','AUS',
-'NYC',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 05:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values (2,'aa2','american airlines','aus',
+                          'nyc','2018-02-05','2018-02-05 05:14:07');
 
-insert into FLIGHT values(3,'AA3','American Airlines','AUS',
-'NYC',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 06:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(3,'aa3','american airlines','aus',
+                          'nyc','2018-02-05','2018-02-05 06:14:07');
 
-insert into FLIGHT values(4,'SW1','South West','AUS',
-'NYC',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 07:14:07');
+insert into flight(id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)   values(4,'sw1','south west','aus',
+                          'nyc', '2018-02-05','2018-02-05 07:14:07');
 
-insert into FLIGHT values(5,'UA1','United Airlines','NYC',
-'DAL',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 10:14:07');
+insert into flight(id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(5,'ua1','united airlines','nyc',
+                          'dal','2018-02-05','2018-02-05 10:14:07');
 
-insert into FLIGHT values(6,'UA1','United Airlines','NYC',
-'DAL',STR_TO_DATE('02-05-2018', '%m-%d-%Y'),'2018-02-05 10:14:07');
+insert into flight(id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)   values(6,'ua1','united airlines','nyc',
+                          'dal', '2018-02-05','2018-02-05 10:14:07');
 
-insert into FLIGHT values(7,'SW1','South West','AUS',
-'NYC',STR_TO_DATE('02-06-2018', '%m-%d-%Y'),'2018-02-06 07:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(7,'sw1','south west','aus',
+                          'nyc', '2018-02-06','2018-02-06 07:14:07');
 
-insert into FLIGHT values(8,'SW2','South West','AUS',
-'NYC',STR_TO_DATE('02-06-2018', '%m-%d-%Y'),'2018-02-06 08:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(8,'sw2','south west','aus',
+                          'nyc', '2018-02-06','2018-02-06 08:14:07');
 
-insert into FLIGHT values(9,'SW3','South West','NYC',
-'DAL',STR_TO_DATE('02-06-2018', '%m-%d-%Y'),'2018-02-06 10:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(9,'sw3','south west','nyc',
+                          'dal', '2018-02-06','2018-02-06 10:14:07');
 
-insert into FLIGHT values(10,'UA1','United Airlines','NYC',
-'DAL',STR_TO_DATE('02-06-2018', '%m-%d-%Y'),'2018-02-06 10:14:07');
+insert into flight (id,flight_number,operating_airlines,departure_city,arrival_city,date_of_departure,estimated_departure_time)  values(10,'ua1','united airlines','nyc',
+                          'dal', '2018-02-06','2018-02-06 10:14:07');
