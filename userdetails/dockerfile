@@ -1,4 +1,4 @@
-FROM java-jdk
+FROM openjdk:7-jdk-alpine
 
 COPY . /userdetails
 COPY .mvn /userdetails
