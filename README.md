@@ -1,34 +1,31 @@
 # microservices_vodqa
-Microservices Testing
+### Microservices Testing
 
-Flight Reservation demo.
+**Flight Reservation Demo**
 
-Project Contains Three Services
+Project contains following 3 services:
 
-Flightdetail service
-user detail service
-Reservation Service
+* Flightdetail service
+* UserDetail service
+* Reservation Service
 
 Clone this Application
+<br></br>
+#### Execution Steps
+~/microservices_vodqa: `docker network create abc`
 
-Run command : docker network create abc
+~/microservices_vodqa/userdetails: `./run dev`
 
-under /userdetails folder
-Execute Command : ./run dev
+~/microservices_vodqa/flightdetails: `./run dev`
 
-under /flightdetails folder
-Execute Command : ./run dev
+~/microservices_vodqa/reservation: `./run dev`
 
-under /reservation folder
-Execute Command : ./run dev
 
-After 5 minutes
+**Access all 3 services using below web endpoints after ~4-5 minutes:**
 
-Access the 3 services using below URLS
+* <http://localhost:7070/userdetails/swagger-ui.html#/user-controller>
 
-http://localhost:7070/userdetails/swagger-ui.html#/user-controller
+* <http://localhost:6060/reservation/swagger-ui.html#/reservation-controller>
 
-http://localhost:6060/reservation/swagger-ui.html#/reservation-controller
-
-http://localhost:9090/flightdetails/swagger-ui.html
+* <http://localhost:9090/flightdetails/swagger-ui.html>
 
