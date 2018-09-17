@@ -1,4 +1,4 @@
-FROM openjdk:7-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
 COPY . /flightdetails
 COPY .mvn /flightdetails
