@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 public class Flight {
-	
+
 	private String flightNumber;
 	private String operatingAirlines;
 	private String departureCity;
@@ -21,6 +21,14 @@ public class Flight {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	public Flight(String flightNumber, String operatingAirlines, String departureCity, String arrivalCity, Date dateOfDeparture, Timestamp estimatedDepartureTime) {
+		this.flightNumber = flightNumber;
+		this.operatingAirlines = operatingAirlines;
+		this.departureCity = departureCity;
+		this.arrivalCity = arrivalCity;
+		this.dateOfDeparture = dateOfDeparture;
+		this.estimatedDepartureTime = estimatedDepartureTime;
+	}
 
 	public Long getId() {
 		return id;
