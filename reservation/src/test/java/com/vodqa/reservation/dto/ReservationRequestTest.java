@@ -20,7 +20,8 @@ public class ReservationRequestTest {
 
     @Before
     public void setUp() throws Exception{
-        reservationRequest = new ReservationRequest(flightId, passengerFirstName, passengerLastName, passengerEmail, passengerPhone, nameOnTheCard, cardNumber, expirationDate,securityCode);
+        reservationRequest = new ReservationRequest(flightId, passengerFirstName, passengerLastName,
+                passengerEmail, passengerPhone, nameOnTheCard, cardNumber, expirationDate,securityCode);
     }
 
     @Test

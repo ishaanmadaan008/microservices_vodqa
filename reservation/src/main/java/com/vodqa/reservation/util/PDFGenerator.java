@@ -57,22 +57,22 @@ public class PDFGenerator {
 		table.addCell(cell);
 
 		table.addCell("Airlines ");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getOperatingAirlines());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getOperatingAirlines());
 
 		table.addCell("Departure City");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getDepartureCity());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getDepartureCity());
 
 		table.addCell("Arrival City");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getArrivalCity());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getArrivalCity());
 
 		table.addCell("Flight Number");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getFlightNumber());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getFlightNumber());
 
 		table.addCell("Departure Date");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getDepartureCity());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getDepartureCity());
 
 		table.addCell("Departure Time");
-		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getEstimatedDepartureTime().toString());
+		table.addCell(reservationController.showCompleteReservation(reservation.getFlight_id()).getBody().getEstimatedDepartureTime().toString());
 
 		cell = new PdfPCell(new Phrase("Passenger Details"));
 		cell.setColspan(2);

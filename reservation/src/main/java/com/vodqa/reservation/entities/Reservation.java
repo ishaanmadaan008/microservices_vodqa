@@ -14,6 +14,29 @@ public class Reservation{
 	@OneToOne
 	private Passenger passenger;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Reservation that = (Reservation) o;
+
+		if (numberOfBags != that.numberOfBags) return false;
+		if (flight_id != that.flight_id) return false;
+		if (!checkedIn.equals(that.checkedIn)) return false;
+		return passenger.equals(that.passenger);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = checkedIn.hashCode();
+		result = 31 * result + numberOfBags;
+		result = 31 * result + passenger.hashCode();
+		result = 31 * result + (int) (flight_id ^ (flight_id >>> 32));
+		return result;
+	}
+
 	public long getFlight_id() {
 		return flight_id;
 	}
