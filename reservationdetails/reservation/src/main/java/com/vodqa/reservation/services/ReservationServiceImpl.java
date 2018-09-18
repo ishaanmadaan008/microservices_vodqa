@@ -6,6 +6,8 @@ import com.vodqa.reservation.entities.Passenger;
 import com.vodqa.reservation.entities.Reservation;
 import com.vodqa.reservation.repos.PassengerRepository;
 import com.vodqa.reservation.repos.ReservationRepository;
+import com.vodqa.reservation.util.EmailUtil;
+import com.vodqa.reservation.util.PDFGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
+	@Value("${com.vodqa.reservation.dirpath}")
+	private String ITINERARY_DIR;
+
 
 	@Value("${flight.details.url}")
 	private String flightDetailsUrl;
@@ -27,6 +32,12 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Autowired
 	ReservationRepository reservationRepository;
+
+	@Autowired
+	PDFGenerator pdfGenerator;
+
+	@Autowired
+	EmailUtil emailUtil;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
@@ -58,6 +69,12 @@ public class ReservationServiceImpl implements ReservationService {
 		LOGGER.info("Saving the reservation:" + reservation);
 		Reservation savedReservation = reservationRepository.save(reservation);
 
+//		String filePath = ITINERARY_DIR + savedReservation.getId()
+//				+ ".pdf";
+//		LOGGER.info("Generating  the itinerary");
+//		pdfGenerator.generateItinerary(savedReservation, filePath);
+//		LOGGER.info("Emailing the Itinerary");
+//		emailUtil.sendItinerary(passenger.getEmail(), filePath);
 
 		return savedReservation;
 	}

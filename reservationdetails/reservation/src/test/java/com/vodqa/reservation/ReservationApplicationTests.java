@@ -1,4 +1,4 @@
-package com.vodqa.flightdetails;
+package com.vodqa.reservation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class FlightdetailsApplicationTests {
+public class ReservationApplicationTests {
 
 	@Test
 	public void contextLoads() {
