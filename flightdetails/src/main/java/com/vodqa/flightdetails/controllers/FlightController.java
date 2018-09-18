@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class FlightController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FlightController.class);
 
-	@PostMapping(value = "/findFlights")
+	@PostMapping(value = "/findFlights", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity findFlights(@RequestBody FlightDetailRequest flightDetailRequest) throws ParseException {
 		String depDate = flightDetailRequest.getDepartureDate();
 
@@ -37,7 +38,7 @@ public class FlightController {
 		System.out.println("Inside findFlights() From:" + flightDetailRequest.getFrom() + " TO:" + flightDetailRequest.getTo() + "Departure Date: " + date);
 		List<Flight> flights = flightRepository.findFlights(flightDetailRequest.getFrom(), flightDetailRequest.getTo(), date);
 		LOGGER.info("Flight Found are:" + flights);
-		return new ResponseEntity(flights, HttpStatus.OK);
+		return new ResponseEntity(flights,HttpStatus.CREATED);
 	}
 
 	@GetMapping(value = "/findAllFlights")
@@ -49,8 +50,8 @@ public class FlightController {
 	}
 
 
-	@GetMapping(value = "/findFlight")
-	public ResponseEntity findFlightsByFlightid(@Param("flightId") Long flightId) {
+	@GetMapping(value = "/findFlight/{flightId}")
+	public ResponseEntity findFlightsByFlightid(@PathVariable("flightId") Long flightId) {
 		Flight flight;
 		if(flightId >10) {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);

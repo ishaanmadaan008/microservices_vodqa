@@ -13,6 +13,8 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -41,11 +43,14 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
+@WebMvcTest(FlightController.class)
 public class FlightControllerTest {
 
     private MockMvc mockMvc;
 
-    @Mock
+    private JacksonTester< FlightDetailRequest > jsonTester;
+
+    @MockBean
     private FlightRepository flightRepository;
 
     private ObjectMapper objectMapper;
@@ -61,22 +66,26 @@ public class FlightControllerTest {
         this.jackson2ObjectMapperBuilder = new Jackson2ObjectMapperBuilder();
         this.mockMvc = standaloneSetup(flightController).build();
         objectMapper = jackson2ObjectMapperBuilder.build();
+        JacksonTester.initFields(this, objectMapper);
     }
 
-   /* @Test
+    @Test
     public void findFlights() throws Exception {
 
-        FlightDetailRequest flightDetailRequest = new FlightDetailRequest("a", "a", "a");
+        FlightDetailRequest flightDetailRequest = new FlightDetailRequest("DEL", "BOM", "2018-09-09");
         List<Flight> flights = new ArrayList<>();
-        given(flightRepository.findFlights("", "", new Date())).willReturn(flights);
+        given(flightRepository.findFlights("DEL", "BOM", new Date())).willReturn(flights);
+        final String flightDetailRequestJson = jsonTester.write(flightDetailRequest).getJson();
 
+        System.out.println(flightDetailRequestJson);
+        String requestBody = objectMapper.writeValueAsString(flightDetailRequest);
+        System.out.println(requestBody);
         mockMvc.perform(post("/findFlights")
-                .content(convertObjectToJsonBytes(flightDetailRequest))
-                .contentType("application/json;charset=UTF-8"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
-                .andReturn();
-    }*/
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(requestBody)
+                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isCreated());
+    }
 
     @Test
     public void findAllFlights() throws Exception {
@@ -114,8 +123,7 @@ public class FlightControllerTest {
                 new Flight("", "", "", "",
                         new Date(), new Timestamp(34)));
 
-        mockMvc.perform(get("/findFlight")
-                .param("flightId", flightId.toString()))
+        mockMvc.perform(get("/findFlight/"+flightId.toString()))
                 .andExpect(status().isInternalServerError())
                 .andReturn();
     }
