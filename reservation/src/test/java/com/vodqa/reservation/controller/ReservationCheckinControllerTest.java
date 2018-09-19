@@ -1,7 +1,6 @@
 package com.vodqa.reservation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.api.message.Packet;
 import com.vodqa.reservation.dto.ReservationRequest;
 import com.vodqa.reservation.entities.Reservation;
 import com.vodqa.reservation.repos.ReservationRepository;

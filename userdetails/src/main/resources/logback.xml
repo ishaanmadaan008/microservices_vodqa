@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="LOG_DIR" value="/Users/ishaanmadaan/Documents/logs" />
+	<property name="LOG_DIR" value="../xmlLogs" />
 	<property name="FILE_PREFIX" value="userdetails" />
 
 	<appender name="FILE"
