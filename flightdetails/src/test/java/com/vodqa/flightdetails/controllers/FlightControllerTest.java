@@ -18,6 +18,7 @@ import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -108,8 +109,7 @@ public class FlightControllerTest {
                 new Flight("", "", "", "",
                         new Date(), new Timestamp(34)));
 
-        mockMvc.perform(get("/findFlight")
-                .param("flightId", "1"))
+        mockMvc.perform(get("/findFlight/"+flightId.toString()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
                 .andReturn();
@@ -119,11 +119,12 @@ public class FlightControllerTest {
     public void findFlightsForInvalidFlightid() throws Exception {
 
         Long flightId = 100L;
-        BDDMockito.given(flightRepository.findOne(flightId)).willReturn(
+        given(flightRepository.findOne(flightId)).willReturn(
                 new Flight("", "", "", "",
                         new Date(), new Timestamp(34)));
 
-        mockMvc.perform(get("/findFlight/"+flightId.toString()))
+        mockMvc.perform(get("/findFlight/"+flightId.toString())
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isInternalServerError())
                 .andReturn();
     }
