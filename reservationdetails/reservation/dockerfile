@@ -1,9 +1,0 @@
-FROM openjdk:8-jdk-alpine
-
-COPY . /reservation
-COPY .mvn /reservation
-WORKDIR /reservation
-
-EXPOSE 6060
-
-CMD ./mvnw spring-boot:run
