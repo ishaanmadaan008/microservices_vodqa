@@ -22,6 +22,9 @@ Execute Command : ./run dev
 under /reservation folder
 Execute Command : ./run dev
 
+under /flightdetails-mocks folder Execute Command :
+./run dev
+
 After 5 minutes
 
 Access the 3 services using below URLS
