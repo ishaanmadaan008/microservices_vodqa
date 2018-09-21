@@ -22,16 +22,28 @@ Execute Command : ./run dev
 under /reservation folder
 Execute Command : ./run dev
 
+under /flightdetails-mocks folder
+Execute Command : ./run dev
+
+under /flightdetails-mocks/proxy-mode folder
+Execute Command : ./run dev
+
 under /flightdetails-mocks folder Execute Command :
 ./run dev
 
 After 5 minutes
 
-Access the 3 services using below URLS
+Access the 5 services using below URLS
 
 http://localhost:7070/userdetails/swagger-ui.html#/user-controller
 
 http://localhost:6060/reservation/swagger-ui.html#/reservation-controller
 
 http://localhost:9090/flightdetails/swagger-ui.html
+
+http://localhost:4222/flightdetails/findFlight/1
+
+http://localhost:4222/flightdetails/findFlight/1
+
+
 
