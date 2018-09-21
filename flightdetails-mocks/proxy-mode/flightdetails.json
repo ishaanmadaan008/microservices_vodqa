@@ -1,0 +1,57 @@
+{
+	"imposters": [{
+		"port": 3222,
+		"protocol": "http",
+		"stubs": [{
+				"predicates": [{
+					"equals": {
+						"method": "Get",
+						"path": "/flightdetails/findAllFlights"
+					}
+				}],
+				"responses": [{
+					"proxy": {
+						"to": "http://localhost:9090",
+						"mode": "proxyOnce",
+						"predicateGenerators": [{
+                			"matches": { "path": true }
+              }]
+					}
+				}]
+			},
+			{
+				"predicates": [{
+					"equals": {
+						"method": "Get",
+						"path": "/flightdetails/findFlight/1"
+					}
+				}],
+				"responses": [{
+					"proxy": {
+						"to": "http://localhost:9090",
+						"mode": "proxyOnce",
+						"predicateGenerators": [{
+               				 "matches": { "path": true }
+              }]
+					}
+				}]
+			}, {
+				"predicates": [{
+					"equals": {
+						"method": "Post",
+						"path": "/flightdetails/findFlights"
+					}
+				}],
+				"responses": [{
+					"proxy": {
+						"to": "http://localhost:9090",
+						"mode": "proxyOnce",
+						"predicateGenerators": [{
+              				  "matches": { "path": true }
+              }]
+					}
+				}]
+			}
+		]
+	}]
+}

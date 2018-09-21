@@ -6,4 +6,5 @@ WORKDIR /flightdetails
 
 EXPOSE 9090
 
+VOLUME ["/flightdetails/.m2","/flightdetails"]
 CMD ./mvnw spring-boot:run
