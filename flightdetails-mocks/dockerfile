@@ -2,7 +2,7 @@ FROM alpine:3.8
 
 EXPOSE 2525
 EXPOSE 3222
-CMD mb start --configfile ./imposter.json
+CMD mb start --configfile ./proxy-mode/flightdetails.json
 
 ENV NODE_VERSION=8.11.4-r0
 
