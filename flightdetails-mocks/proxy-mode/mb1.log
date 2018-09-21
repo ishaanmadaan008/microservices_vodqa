@@ -1,0 +1,8 @@
+{"message":"[mb:2525] mountebank v1.15.0 now taking orders - point your browser to http://localhost:2525 for help","level":"info","timestamp":"2018-09-21T01:35:14.854Z"}
+{"message":"[mb:2525] PUT /imposters","level":"info","timestamp":"2018-09-21T01:35:14.976Z"}
+{"message":"[http:3222] Open for business...","level":"info","timestamp":"2018-09-21T01:35:15.057Z"}
+{"message":"[http:3222] ::1:64716 => GET /flightdetails/findFlight/1","level":"info","timestamp":"2018-09-21T01:35:17.728Z"}
+{"message":"[http:3222] ::1:64717 => GET /favicon.ico","level":"info","timestamp":"2018-09-21T01:35:18.401Z"}
+{"message":"[http:3222] ::1:64727 => GET /flightdetails/findFlight/1","level":"info","timestamp":"2018-09-21T01:35:20.426Z"}
+{"message":"[http:3222] ::1:64728 => GET /favicon.ico","level":"info","timestamp":"2018-09-21T01:35:20.569Z"}
+{"message":"[mb:2525] Adios - see you soon?","level":"info","timestamp":"2018-09-21T01:35:56.891Z"}

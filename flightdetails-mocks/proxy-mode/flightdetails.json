@@ -11,7 +11,7 @@
 				}],
 				"responses": [{
 					"proxy": {
-						"to": "http://localhost:9090",
+						"to": "http://flightdetails:9090",
 						"mode": "proxyOnce",
 						"predicateGenerators": [{
                 			"matches": { "path": true }
@@ -28,7 +28,7 @@
 				}],
 				"responses": [{
 					"proxy": {
-						"to": "http://localhost:9090",
+						"to": "http://flightdetails:9090",
 						"mode": "proxyOnce",
 						"predicateGenerators": [{
                				 "matches": { "path": true }
@@ -44,7 +44,7 @@
 				}],
 				"responses": [{
 					"proxy": {
-						"to": "http://localhost:9090",
+						"to": "http://flightdetails:9090",
 						"mode": "proxyOnce",
 						"predicateGenerators": [{
               				  "matches": { "path": true }
