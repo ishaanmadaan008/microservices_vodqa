@@ -1,6 +1,6 @@
 {
 	"imposters": [{
-		"port": 3222,
+		"port": 4222,
 		"protocol": "http",
 		"stubs": [{
 				"predicates": [{
@@ -13,6 +13,7 @@
 					"proxy": {
 						"to": "http://flightdetails:9090",
 						"mode": "proxyOnce",
+                                                "addWaitBehavior": true,
 						"predicateGenerators": [{
                 			"matches": { "path": true }
               }]
@@ -30,6 +31,7 @@
 					"proxy": {
 						"to": "http://flightdetails:9090",
 						"mode": "proxyOnce",
+                                                "addWaitBehavior": true,
 						"predicateGenerators": [{
                				 "matches": { "path": true }
               }]

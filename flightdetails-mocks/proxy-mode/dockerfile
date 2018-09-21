@@ -1,14 +1,14 @@
 FROM alpine:3.8
 
-EXPOSE 2525
-EXPOSE 3222
-CMD mb start --configfile ./imposter.json
+EXPOSE 2526
+EXPOSE 4222
+CMD mb start --configfile flightdetails.json
 
 ENV NODE_VERSION=8.11.4-r0
 
-COPY . /flightdetails-mocks
+COPY . /proxy-mode
 
-WORKDIR /flightdetails-mocks
+WORKDIR /proxy-mode
 
 RUN apk update \
  && apk add --no-cache nodejs=${NODE_VERSION} \
