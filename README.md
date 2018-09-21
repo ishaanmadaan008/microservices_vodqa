@@ -25,10 +25,10 @@ Execute Command : ./run dev
 under /flightdetails-mocks folder
 Execute Command : ./run dev
 
-under /flightdetails-mocks/proxy-mode folder
+under /flightdetails-mocks folder
 Execute Command : ./run dev
 
-under /flightdetails-mocks folder Execute Command :
+under /flightdetails-mocks/proxy-mode folder Execute Command :
 ./run dev
 
 After 5 minutes
@@ -41,7 +41,7 @@ http://localhost:6060/reservation/swagger-ui.html#/reservation-controller
 
 http://localhost:9090/flightdetails/swagger-ui.html
 
-http://localhost:4222/flightdetails/findFlight/1
+http://localhost:3222/flightdetails/findFlight/1
 
 http://localhost:4222/flightdetails/findFlight/1
 
