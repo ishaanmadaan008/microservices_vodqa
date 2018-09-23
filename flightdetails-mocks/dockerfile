@@ -1,0 +1,21 @@
+FROM alpine:3.8
+
+EXPOSE 2525
+EXPOSE 3222
+CMD mb start --configfile ./imposter.json
+
+ENV NODE_VERSION=8.11.4-r0
+
+COPY . /flightdetails-mocks
+
+WORKDIR /flightdetails-mocks
+
+RUN apk update \
+ && apk add --no-cache nodejs=${NODE_VERSION} \
+ && apk add --no-cache npm=${NODE_VERSION}
+
+ENV MOUNTEBANK_VERSION=1.15.0
+
+RUN npm install -g mountebank@${MOUNTEBANK_VERSION} --production \
+ && npm cache clean --force 2>/dev/null \
+ && rm -rf /tmp/npm*

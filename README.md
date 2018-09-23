@@ -20,6 +20,9 @@ Clone this Application
 
 ~/microservices_vodqa/reservation: `./run dev`
 
+~/microservices_vodqa/flightdetails-mocks: `./run dev`
+
+~/microservices_vodqa/flightdetails-mocks/proxy-mode: `./run dev`
 
 **Access all 3 services using below web endpoints after ~4-5 minutes:**
 
@@ -29,3 +32,6 @@ Clone this Application
 
 * <http://localhost:9090/flightdetails/swagger-ui.html>
 
+* <http://localhost:3222/flightdetails/findFlight/1>
+
+* <http://localhost:4222/flightdetails/findFlight/1>

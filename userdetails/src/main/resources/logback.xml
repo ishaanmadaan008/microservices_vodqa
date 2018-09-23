@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+<<<<<<< HEAD
 	<property name="LOG_DIR" value="../xmlLogs" />
+=======
+	<property name="LOG_DIR" value="~/Documents/logs" />
+>>>>>>> 2cc3cb82e4699b0f39374ecd77bf6ef17bb2f063
 	<property name="FILE_PREFIX" value="userdetails" />
 
 	<appender name="FILE"

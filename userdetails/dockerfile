@@ -4,6 +4,8 @@ COPY . /userdetails
 COPY .mvn /userdetails
 WORKDIR /userdetails
 
+VOLUME ["/userdetails/.m2","/userdetails"]
+
 EXPOSE 7070
 
 CMD ./mvnw spring-boot:run
