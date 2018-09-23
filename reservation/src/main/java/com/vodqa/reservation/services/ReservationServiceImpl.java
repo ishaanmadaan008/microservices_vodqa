@@ -28,7 +28,6 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	ReservationRepository reservationRepository;
 
-<<<<<<< HEAD
 	@Autowired
 	RestTemplate restTemplate;
 
@@ -43,9 +42,6 @@ public class ReservationServiceImpl implements ReservationService {
 	private static final int PHONE_NUMBER_LENGTH = 3;
 	private static final String NUMERIC_CONTENT = "[0-9]+";
 
-
-=======
->>>>>>> 2cc3cb82e4699b0f39374ecd77bf6ef17bb2f063
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
 	@Override
