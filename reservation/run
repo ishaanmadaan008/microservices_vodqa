@@ -2,6 +2,8 @@
 
 dev()
 {
+rm -rf target
+./mvnw clean package -DskipTests
 docker build . -t reservation
 docker-compose -f docker-compose.yml up
 }

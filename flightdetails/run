@@ -2,7 +2,10 @@
 
 dev()
 {
+rm -rf target
+./mvnw clean package -DskipTests
 docker build . -t flightdetails
+docker network create abc
 docker-compose -f docker-compose.yml up
 }
 

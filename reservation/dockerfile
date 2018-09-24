@@ -1,11 +1,11 @@
 FROM openjdk:8-jdk-alpine
 
-COPY . /reservation
-COPY .mvn /reservation
+COPY  ./target/reservation-0.0.1-SNAPSHOT.jar /reservation/
+
 WORKDIR /reservation
 
-VOLUME ["/reservation/.m2","/reservation"]
+RUN chmod -R 777 .
 
 EXPOSE 6060
 
-CMD ./mvnw spring-boot:run
+CMD java -jar reservation-0.0.1-SNAPSHOT.jar

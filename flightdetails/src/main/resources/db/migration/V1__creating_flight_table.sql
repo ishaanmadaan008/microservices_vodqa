@@ -1,3 +1,4 @@
+Use flightdetails;
 Drop TABLE IF EXISTS flight;
 
 CREATE TABLE flight (

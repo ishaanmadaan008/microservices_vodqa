@@ -21,6 +21,9 @@ public class Flight {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	public Flight()
+	{}
+
 	public Flight(String flightNumber, String operatingAirlines, String departureCity, String arrivalCity, Date dateOfDeparture, Timestamp estimatedDepartureTime) {
 		this.flightNumber = flightNumber;
 		this.operatingAirlines = operatingAirlines;
