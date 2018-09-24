@@ -17,6 +17,16 @@ public class FlightDetailRequest {
         this.from = from;
     }
 
+    public FlightDetailRequest(){
+
+    }
+
+    public FlightDetailRequest(String from, String to, String departureDate) {
+        this.from = from;
+        this.to = to;
+        this.departureDate = departureDate;
+    }
+
     public String getTo() {
         return to;
     }

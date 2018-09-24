@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/micorservices_vodqa.iml" filepath="$PROJECT_DIR$/.idea/micorservices_vodqa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/microservices_vodqa.iml" filepath="$PROJECT_DIR$/.idea/microservices_vodqa.iml" />
     </modules>
   </component>
 </project>

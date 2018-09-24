@@ -17,6 +17,30 @@ public class Passenger{
 	private String email;
 	private String phone;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Passenger passenger = (Passenger) o;
+
+		if (!firstName.equals(passenger.firstName)) return false;
+		if (!lastName.equals(passenger.lastName)) return false;
+		if (middleName != null ? !middleName.equals(passenger.middleName) : passenger.middleName != null) return false;
+		if (!email.equals(passenger.email)) return false;
+		return phone.equals(passenger.phone);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = firstName.hashCode();
+		result = 31 * result + lastName.hashCode();
+		result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
+		result = 31 * result + email.hashCode();
+		result = 31 * result + phone.hashCode();
+		return result;
+	}
 
 	public long getId() {
 		return id;

@@ -28,6 +28,20 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	ReservationRepository reservationRepository;
 
+	@Autowired
+	RestTemplate restTemplate;
+
+	@Autowired
+	PDFGenerator pdfGenerator;
+
+	@Autowired
+	EmailUtil emailUtil;
+
+	private static final int CARD_NUMBER_LENGTH = 16;
+	private static final int NAME_MIN_LENGTH = 3;
+	private static final int PHONE_NUMBER_LENGTH = 3;
+	private static final String NUMERIC_CONTENT = "[0-9]+";
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
 	@Override
@@ -39,7 +53,6 @@ public class ReservationServiceImpl implements ReservationService {
 
 		Long flightId = request.getFlightId();
 		LOGGER.info("Fetching  flight for flight id:" + flightId);
-		RestTemplate restTemplate = new RestTemplate();
 		Flight flight=restTemplate.getForObject(flightDetailsUrl+"/findFlight/"+flightId, Flight.class);
 
 		Passenger passenger = new Passenger();
@@ -48,6 +61,10 @@ public class ReservationServiceImpl implements ReservationService {
 		passenger.setPhone(request.getPassengerPhone());
 		passenger.setEmail(request.getPassengerEmail());
 		LOGGER.info("Saving the passenger:" + passenger);
+
+		if(validateReservationData(request)==null)
+			return null;
+
 		Passenger savedPassenger = passengerRepository.save(passenger);
 
 		Reservation reservation = new Reservation();
@@ -60,6 +77,27 @@ public class ReservationServiceImpl implements ReservationService {
 
 
 		return savedReservation;
+	}
+
+	private Reservation validateReservationData(ReservationRequest request) {
+
+		if(	request.getCardNumber().length() != CARD_NUMBER_LENGTH ||
+
+        request.getPassengerFirstName().length() < NAME_MIN_LENGTH ||
+
+		request.getPassengerLastName().length() < NAME_MIN_LENGTH ||
+
+
+		request.getPassengerPhone().length() < PHONE_NUMBER_LENGTH ||
+
+		!request.getPassengerPhone().matches(NUMERIC_CONTENT) ||
+
+		request.getFlightId()==null ||
+
+		!request.getPassengerEmail().contains("@")){
+			return null;
+		}
+     return new Reservation();
 	}
 
 }

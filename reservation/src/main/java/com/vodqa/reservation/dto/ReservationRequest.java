@@ -13,6 +13,23 @@ public class ReservationRequest {
 	private String expirationDate;
 	private String securityCode;
 
+	public ReservationRequest() {
+	}
+
+	public ReservationRequest(Long flightId, String passengerFirstName, String passengerLastName,
+							  String passengerEmail, String passengerPhone, String nameOnTheCard,
+							  String cardNumber, String expirationDate, String securityCode) {
+		this.flightId = flightId;
+		this.passengerFirstName = passengerFirstName;
+		this.passengerLastName = passengerLastName;
+		this.passengerEmail = passengerEmail;
+		this.passengerPhone = passengerPhone;
+		this.nameOnTheCard = nameOnTheCard;
+		this.cardNumber = cardNumber;
+		this.expirationDate = expirationDate;
+		this.securityCode = securityCode;
+	}
+
 	public Long getFlightId() {
 		return flightId;
 	}
