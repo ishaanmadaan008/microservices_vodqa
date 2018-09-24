@@ -11,6 +11,9 @@
 				}],
 				"responses": [{
 					"is": {
+						"headers": {
+							"Content-Type": "application/json"
+						},
 						"statusCode": 200,
 						"body": "<%- stringify(filename, 'findAllFlightsResponse.json') %>"
 					}
@@ -25,6 +28,9 @@
 				}],
 				"responses": [{
 					"is": {
+						"headers": {
+							"Content-Type": "application/json"
+						},
 						"statusCode": 200,
 						"body": "<%- stringify(filename, 'findFlightbyIdResponse.json') %>"
 					}
@@ -39,6 +45,9 @@
 				}],
 				"responses": [{
 					"is": {
+						"headers": {
+							"Content-Type": "application/json"
+						},
 						"statusCode": 200,
 						"body": "<%- stringify(filename, 'findAllFlightsResponse.json') %>"
 					}

@@ -31,11 +31,6 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	@Autowired
-	PDFGenerator pdfGenerator;
-
-	@Autowired
-	EmailUtil emailUtil;
 
 	private static final int CARD_NUMBER_LENGTH = 16;
 	private static final int NAME_MIN_LENGTH = 3;
