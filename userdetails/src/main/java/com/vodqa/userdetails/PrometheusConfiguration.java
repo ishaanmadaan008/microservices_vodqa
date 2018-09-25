@@ -1,4 +1,4 @@
-package com.vodqa.flightdetails;
+package com.vodqa.userdetails;
 
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
