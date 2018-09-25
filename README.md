@@ -24,6 +24,8 @@ Clone this Application
 
 ~/microservices_vodqa/flightdetails-mocks/proxy-mode: `./run dev`
 
+~/microservices_vodqa/prometheus: `./run dev`
+
 **Access all 3 services using below web endpoints after ~4-5 minutes:**
 
 * <http://localhost:7070/userdetails/swagger-ui.html#/user-controller>
@@ -35,3 +37,9 @@ Clone this Application
 * <http://localhost:3222/flightdetails/findFlight/1>
 
 * <http://localhost:4222/flightdetails/findFlight/1>
+
+promithius 
+http://localhost:8081/
+
+Verify the email at vodqa.ggn@mailinator.com
+
