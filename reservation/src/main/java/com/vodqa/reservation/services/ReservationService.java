@@ -5,6 +5,6 @@ import com.vodqa.reservation.entities.Reservation;
 
 public interface ReservationService {
 	
-	public Reservation bookFlight(ReservationRequest request);
+	public Reservation bookFlight(ReservationRequest request) throws Exception;
 
 }

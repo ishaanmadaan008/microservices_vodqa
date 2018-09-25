@@ -41,7 +41,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	@Transactional
-	public Reservation bookFlight(ReservationRequest request) {
+	public Reservation bookFlight(ReservationRequest request) throws Exception {
 
 		LOGGER.info("Inside bookFlight()");
 		// Make Payment
@@ -58,7 +58,7 @@ public class ReservationServiceImpl implements ReservationService {
 		LOGGER.info("Saving the passenger:" + passenger);
 
 		if(validateReservationData(request)==null)
-			return null;
+			throw new Exception();
 
 		Passenger savedPassenger = passengerRepository.save(passenger);
 

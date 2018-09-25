@@ -38,8 +38,14 @@ public class ReservationController {
 	@RequestMapping(value = "/completeReservation", method = RequestMethod.POST)
 	public ResponseEntity completeReservation(@RequestBody ReservationRequest request) {
 		LOGGER.info("completeReservation()  " + request);
+		Reservation reservation;
+		try {
+			 reservation = reservationService.bookFlight(request);
+		}
+		catch(Exception e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
 
-		Reservation reservation = reservationService.bookFlight(request);
 		return new ResponseEntity(reservation, HttpStatus.CREATED);
 
 	}
