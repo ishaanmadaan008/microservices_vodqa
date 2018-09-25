@@ -11,6 +11,8 @@ services:
       - ./logs:/userdetails/logs
     links:
       - userdetails-mysql
+    depends_on:
+      - userdetails-mysql
   userdetails-mysql:
     networks:
       - abc

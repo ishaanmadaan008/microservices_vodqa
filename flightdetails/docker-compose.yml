@@ -11,6 +11,8 @@ services:
       - ./logs:/flightdetails/logs
     links:
       - flightdetails-mysql
+    depends_on:
+      - flightdetails-mysql
   flightdetails-mysql:
     networks:
       - abc
