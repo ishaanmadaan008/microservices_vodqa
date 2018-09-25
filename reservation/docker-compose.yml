@@ -11,6 +11,8 @@ services:
       - ./logs:/reservation/logs
     links:
       - reservation-mysql
+    depends_on:
+      - reservation-mysql
   reservation-mysql:
     networks:
       - abc
