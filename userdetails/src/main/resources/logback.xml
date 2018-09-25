@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="LOG_DIR" value="/userdetails/logs" />
+	<property name="LOG_DIR" value="./logs" />
 	<property name="FILE_PREFIX" value="userdetails" />
 
 	<appender name="FILE"
