@@ -29,8 +29,8 @@ public class Service2PactTest
                 "    \"operatingAirlines\": \"american airlines\",\n" +
                 "    \"departureCity\": \"aus\",\n" +
                 "    \"arrivalCity\": \"nyc\",\n" +
-                "    \"dateOfDeparture\": 1517788800000,\n" +
-                "    \"estimatedDepartureTime\": 1517800447000,\n" +
+                "    \"dateOfDeparture\": 1517769000000,\n" +
+                "    \"estimatedDepartureTime\": 1517780647000,\n" +
                 "    \"id\": 1\n" +
                 "  }";
 
