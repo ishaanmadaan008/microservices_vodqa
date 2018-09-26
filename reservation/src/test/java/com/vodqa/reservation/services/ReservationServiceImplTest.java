@@ -10,17 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.mock.env.MockEnvironment;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
@@ -30,7 +23,6 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 /**
  * Created by divyar on 9/17/18.
@@ -56,6 +48,7 @@ public class ReservationServiceImplTest {
         MockitoAnnotations.initMocks(this);
         ReflectionTestUtils.setField(reservationService, "flightDetailsUrl", "http://flightdetails:9090/flightdetails");
     }
+
     @Test
     public void bookFlight() throws Exception {
         Passenger passenger = new Passenger();
@@ -85,7 +78,7 @@ public class ReservationServiceImplTest {
 
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightInvalidCard() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -108,13 +101,12 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightInvalidFirstName() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -137,12 +129,11 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightInvalidLastName() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -165,12 +156,11 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightInvalidPhoneNumber() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -193,12 +183,11 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightNonNumericPhoneNumber() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -221,11 +210,10 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightNoFlightId() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -248,12 +236,11 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void bookFlightInvalidEmail() throws Exception {
         Passenger passenger = new Passenger();
         Reservation reservation = new Reservation();
@@ -276,7 +263,6 @@ public class ReservationServiceImplTest {
         given(reservationRepository.save(reservation)).willReturn(reservation);
 
         Reservation actualResponse = reservationService.bookFlight(request);
-        assertNull(actualResponse);
 
     }
 }
