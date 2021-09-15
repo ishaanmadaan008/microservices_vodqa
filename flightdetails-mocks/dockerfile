@@ -4,7 +4,6 @@ EXPOSE 2525
 EXPOSE 3222
 CMD mb start --configfile ./imposter.json
 
-ENV NODE_VERSION=8.11.4-r0
 
 COPY . /flightdetails-mocks
 
